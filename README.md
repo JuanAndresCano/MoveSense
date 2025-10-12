@@ -15,7 +15,7 @@ Active
 
 Contact the team leader or instructor with any questions or interest in contributing.
 
-## Project Intro/Objective
+## Project Objective
 
 MoveSense busca desarrollar una herramienta que identifique en tiempo real actividades humanas específicas (caminar hacia/desde la cámara, girar, sentarse, ponerse de pie) y realice el seguimiento de movimientos articulares clave para análisis postural. Se explorará el uso de bases de datos públicas de reconocimiento de actividades con seguimiento articular las cuales han de tener la cantidad suficiente de datos, de la calidad suficiente y variedad necesaria para poder realizar una herramienta de calidad. Adicionalmente, por amor academico y compromiso por el proyecto, se explorará el uso de videos propios de por lo menos, los dos miembros contribuyentes.
 
