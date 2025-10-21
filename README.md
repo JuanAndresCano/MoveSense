@@ -9,7 +9,7 @@ Active
 **Members:**
 
 - Juan Andrés Cano Ramírez. (https://github.com/JuanAndresCano)
-- Pablo Guzmán Alarcón. ([Github handle])
+- Pablo Guzmán Alarcón. (https://github.com/Pableis05)
 
 ## Contact
 
