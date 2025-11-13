@@ -1,0 +1,13 @@
+{
+  "rf_baseline": {
+    "avg_time": 0.14123073999999178,
+    "std_time": 0.007639697434559948,
+    "samples": 200
+  },
+  "pca60_svm": {
+    "avg_time": 0.0782448726000439,
+    "std_time": 0.006731197964990835,
+    "samples": 200
+  },
+  "note": "Tiempos aproximados con sample_size=200, predict sobre pipelines ya ajustados."
+}

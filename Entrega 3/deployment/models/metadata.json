@@ -1,0 +1,14 @@
+{
+  "dataset": "Entrega 2\\landmarks_data.csv",
+  "n_samples": 13035,
+  "n_features": 132,
+  "pca_components": 60,
+  "rf_estimators": 400,
+  "class_labels": [
+    "adelante",
+    "atras",
+    "girar",
+    "pararse",
+    "sentarse"
+  ]
+}
