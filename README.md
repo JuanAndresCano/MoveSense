@@ -1,58 +1,56 @@
 # MoveSense
 
+[Video Entrega 3](https://youtu.be/QlplxCFysmI?si=SNXwyeDAkLsK0a-1)
+
+## Project Overview
+
+MoveSense es un sistema de reconocimiento de actividades humanas que opera en tiempo real y calcula ángulos articulares clave usando MediaPipe Pose. El proyecto culmina en la Entrega 3 con un demo en vivo y artefactos reproducibles.
+
 ## Project Status
 
-Active
+Entrega 3 completada (demo funcional y documentación consolidada).
 
 ## Contributing Members
 
-**Members:**
+- Juan Andrés Cano Ramírez — https://github.com/JuanAndresCano
+- Pablo Guzmán Alarcón — https://github.com/Pableis05
 
-- Juan Andrés Cano Ramírez. (https://github.com/JuanAndresCano)
-- Pablo Guzmán Alarcón. (https://github.com/Pableis05)
+## Core Components
 
-## Contact
+- Dataset tabular con 132 `landmarks` procesados (`Entrega 2/landmarks_data.csv`).
+- Paquete de inferencia en `Entrega 3/deployment/` con pipelines exportados (`activity_rf.joblib`, `activity_pca60_svm.joblib`).
+- Documentación técnica en `Entrega 3/docs/` (evaluación de resultados, reducción de características, despliegue, impacto).
+- Videos de funcionalidades en `Entrega 3/videosFuncionalidades/`.
 
-Contact the team leader or instructor with any questions or interest in contributing.
+## Methods & Models
 
-## Project Objective
+- Extracción de landmarks con MediaPipe Pose y normalización de coordenadas.
+- Baseline: `RandomForestClassifier` (132 features, `class_weight='balanced'`).
+- Pipeline final: `Imputer → StandardScaler → PCA(60) → SVM RBF` optimizado con `StratifiedKFold` (5 folds).
+- Experimentos adicionales de reducción: importancias de RandomForest, `SelectKBest`, análisis de varianza explicada de PCA.
+- Métricas monitorizadas: accuracy, macro F1, matrices de confusión agregadas, latencia por muestra.
 
-MoveSense busca desarrollar una herramienta que identifique en tiempo real actividades humanas específicas (caminar hacia/desde la cámara, girar, sentarse, ponerse de pie) y realice el seguimiento de movimientos articulares clave para análisis postural. Se explorará el uso de bases de datos públicas de reconocimiento de actividades con seguimiento articular las cuales han de tener la cantidad suficiente de datos, de la calidad suficiente y variedad necesaria para poder realizar una herramienta de calidad. Adicionalmente, por amor academico y compromiso por el proyecto, se explorará el uso de videos propios de por lo menos, los dos miembros contribuyentes.
+## Tech Stack
 
-## Methods Used
+- Python 3.10
+- scikit-learn, pandas, numpy, joblib
+- MediaPipe, OpenCV (captura y overlay en tiempo real)
+- matplotlib, seaborn (visualización)
 
-- Machine Learning supervisado (SVM, Random Forest, XGBoost)
-- Seguimiento de pose con MediaPipe
-- Preprocesamiento y extracción de características
-- Métricas de evaluación (precisión, recall, F1-Score)
+## Reproducir Experimentos
 
-## Technologies
+- Notebooks principales en `Entrega 3/notebooks/` (`evaluation.ipynb`, `feature_reduction.ipynb`).
+- Artefactos de métricas y reportes en `Entrega 3/artifacts/`.
+- Para repetir la exportación de modelos:
+  - `python "Entrega 3/deployment/export_artifacts.py"`
+- Para ejecutar el demo en vivo:
+  - `pip install -r "Entrega 3/deployment/requirements.txt"`
+  - `python "Entrega 3/deployment/realtime_app.py" --models-dir "Entrega 3/deployment/models" --camera-index 0`
 
-- Python
-- OpenCV
-- MediaPipe
-- Herramientas de anotación: LabelStudio o CVAT
+## Documentation Highlights
 
-## Project Description
+- `Entrega 3/docs/evaluacion_resultados.md`: compara RandomForest vs. PCA+SVM (metricas y latencia).
+- `Entrega 3/docs/feature_reduction.md`: resume estrategias de selección de características.
+- `Entrega 3/docs/despliegue.md`: guía paso a paso del demo y dependencias.
+- `Entrega 3/docs/impacto_final.md`: impactos y consideraciones éticas de la solución.
 
-- Recolección inicial de videos propios de actividades humanas específicas para entrenamiento y prueba.
-- Anotación manual y/o automática de segmentos de video con actividades clave usando herramientas especializadas.
-- Uso de MediaPipe para extracción de landmarks (caderas, rodillas, muñecas, etc.) y cálculo de ángulos e inclinaciones.
-- Aplicación de técnicas de normalización y filtrado para preparar datos para el modelado.
-- Definición de métricas para evaluar desempeño del sistema durante experimentación.
-- Exploración de datasets públicos de seguimiento articular para complementar datos y validar modelos.
-- Planificación y estrategia para ampliación de conjunto de datos.
-
-## Getting Started
-
-- Repositorio contiene carpeta “RawData” con videos iniciales capturados por el equipo.
-- Anotaciones manuales en carpeta “Annotations”.
-- Scripts para preprocesamiento y análisis exploratorio en “DataProcessing”.
-- Documentación sobre captura de videos y uso de herramientas de anotación.
-- En el documento DataSets.md se pondrán los datasets públicos considerados para el desarrollo del proyecto.
-
-## Featured Notebooks/Analysis/Deliverables
-
-- Primer análisis exploratorio de datos: data_exploration.ipynb
-- Documentación de metodología y métricas: methodology.md
-- Plan de trabajo y próximos pasos: roadmap.md

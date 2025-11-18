@@ -1,4 +1,4 @@
-# Evaluación de resultados — Entrega 3
+# Evaluación de resultados
 
 ## Configuración
 - Dataset: `Entrega 2/landmarks_data.csv` (13 035 filas, 132 features).
